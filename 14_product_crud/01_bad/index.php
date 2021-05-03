@@ -1,11 +1,52 @@
 <?php
+// using PDO
+// $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
+// $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+// $statement->execute();
+// $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
-$statement->execute();
-$products = $statement->fetchAll(PDO::FETCH_ASSOC);
+// using MySQLi Object-Oriented
+$con = new mysqli("localhost","root","","products_crud");
+
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  exit();
+} 
+
+$sql = "SELECT * FROM products ORDER BY create_date DESC";
+$result = mysqli_query($con, $sql);
+
+// Fetch all
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Free result set
+mysqli_free_result($result);
+
+// connection close
+mysqli_close($con);
+
+// // using Procedural php
+// // Create connection
+// $conn = mysqli_connect("localhost","root","","products_crud");
+
+// // Check connection
+// if (!$conn) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// echo "Connected successfully";
+
+// $sql = "SELECT * FROM products ORDER BY create_date DESC";
+// $result = mysqli_query($conn, $sql);
+
+// // Fetch all
+// $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// // Free result set
+// mysqli_free_result($result);
+
+// mysqli_close($conn);
 ?>
 
 <!doctype html>
