@@ -1,5 +1,5 @@
 <?php
-// ----------- TODO delete image from directory -------------
+// ----------- TODO delete image direcory -------------
 
 // $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
 // $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,28 +26,31 @@ if (!$id) {
     exit;
 }
 
-// $sql = "SELECT * FROM products where id = $id";
-// $result = mysqli_query($conn, $sql);
-// // Fetch all
-// $product = mysqli_fetch_row($result);
-// var_dump($product) ;
+$sql = "SELECT * FROM products where id = $id";
+$result = mysqli_query($conn, $sql);
+// var_dump($result) ;
+// Fetch all
+$product = mysqli_fetch_row($result);
 
-// $imagePath = 'images/'. $product['image'];
-// if(file_exists($imagePath)){
+// var_dump($product[3]) ;
 
-//     //delete the image
-//     unlink($imagePath);
-// }
+
+$imagePath = $product[3];
+// var_dump($imagePath) ;
+
+if(file_exists($imagePath)){
+
+    //delete the image
+    unlink($imagePath);
+}
 
 $sql = "DELETE FROM products WHERE id=$id";
 $deleteResult = mysqli_query($conn, $sql);
 if ($deleteResult) {
-    header('Location: index.php');
+    // header('Location: index.php');
 } else {
     echo "some error occured";
 }
 
-// Free result set
-mysqli_free_result($deleteResult);
 // close connection
 mysqli_close($conn);
