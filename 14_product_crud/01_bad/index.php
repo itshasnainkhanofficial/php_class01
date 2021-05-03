@@ -80,6 +80,11 @@ mysqli_close($con);
     </tr>
     </thead>
     <tbody>
+<!-- 
+    <?php foreach ($products as $i => $product) :  ?>
+             code...a
+    <?php endforeach ?> -->
+
     <?php foreach ($products as $i => $product) { ?>
         <tr>
             <th scope="row"><?php echo $i + 1 ?></th>
