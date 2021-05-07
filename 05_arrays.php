@@ -1,7 +1,7 @@
 <?php
 
 // // Create array
-$fruits = ["Banana", "Apple", "Orange"];
+// $fruits = ["Banana", "Apple", "Orange"];
 
 // // Print the whole array
 // echo '<pre>';
@@ -81,19 +81,18 @@ $fruits = ["Banana", "Apple", "Orange"];
 // // Associative arrays
 // // ============================================
 
-// // Create an associative array
-$person = [
-    'name' => 'Brad',
-    'surname' => 'Traversy',
-    'age' => 30,
-    'hobbies' => ['Tennis', 'Video Games'],
-];
-// $age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43"); // second method of creating array
+// // // Create an associative array
+// $person = [
+//     'name' => 'Arsalan',
+//     'surname' => 'Fazal',
+//     'age' => 30,
+//     'hobbies' => ['Tennis', 'Video Games'],
+// ];
 // // Get element by key
 // echo $person['name'].'<br>';
 
 // // Set element by key
-$person['institute'] = 'Tech Zone';
+// $person['institute'] = 'Tech Zone';
 
 // //Null coalescing assignment operator. Since PHP 7.4
 
