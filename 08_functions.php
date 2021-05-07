@@ -3,7 +3,7 @@
 // Function which prints "Hello I am Zura"
 function hello()
 {
-    echo 'Hello I am Zura<br>';
+    echo 'Hello I am Ali<br>';
 }
 
 hello();
@@ -29,16 +29,7 @@ echo sum(9,10);
 //function sum(...$nums)
 //{
 //    $sum = 0;
-//    foreach ($nums as $num) $sum += $num;
+//    foreach ($nums as $num) $sum += $num; // single line statement
 //    return $sum;
 //}
-//echo sum(1, 2, 3, 4, 6);
-//
-// Arrow functions
-//function sum(...$nums)
-//{
-//    return array_reduce($nums, fn($carry, $n) => carry + $n);
-//}
-//echo sum(1, 2, 3, 4, 6);
-
-
+//echo sum(1, 2, 3, 4, 6); // provide any number of arguments
