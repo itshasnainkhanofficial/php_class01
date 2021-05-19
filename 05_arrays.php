@@ -82,12 +82,12 @@
 // // ============================================
 
 // // // Create an associative array
-// $person = [
-//     'name' => 'Arsalan',
-//     'surname' => 'Fazal',
-//     'age' => 30,
-//     'hobbies' => ['Tennis', 'Video Games'],
-// ];
+$person = [
+    'name' => 'Arsalan',
+    'surname' => 'Fazal',
+    'age' => 30,
+    'hobbies' => ['Tennis', 'Video Games'],
+];
 // // Get element by key
 // echo $person['name'].'<br>';
 
@@ -115,9 +115,10 @@
 // // now after php 7
 // $person['address'] = $person['address'] ?? 'Unknown';
 
-// // and simplified in php 7.4
-// // $person['address'] ??= 'Unknown';
+// // // and simplified in php 7.4
+// $person['address'] ??= 'Unknown';
 // echo $person['address'].'<br>';
+// echo phpinfo();
 
 // // Check if array has specific key
 // echo '<pre>';
