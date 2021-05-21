@@ -1,41 +1,78 @@
 <?php
-// Magic constants
-echo __FILE__ . '<br>';
-echo __DIR__ . '<br>';
+// Magic constants, they change their values based on their execution
+// echo __FILE__ . '<br>';
+// echo __DIR__ . '<br>';
+// echo __LINE__. '<br>';
 
 // Create directory
-//mkdir('test');
+// mkdir('test');
 
 // Rename directory
-//rename('test', 'test2');
+// rename('test', 'test2');
 
 // Delete directory
-//rmdir('test2');
+// rmdir('test');
 
-// Read files and folders inside directory
-//$files = scandir('./');
-//echo '<pre>';
-//var_dump($files);
-//echo '</pre>';
+// // Read files and folders inside current directory
+// $files = scandir('./');
+// echo '<pre>';
+// var_dump($files);
+// echo '</pre>';
 
-// file_get_contents, file_put_contents
-$lorem = file_get_contents('lorem.txt');
-echo $lorem;
-echo '<br>';
-file_put_contents('lorem.txt', "First line" . PHP_EOL . $lorem);
 
-// file_get_contents from URL
-$jsonContent = file_get_contents('https://jsonplaceholder.typicode.com/users');
-$users = json_decode($jsonContent);
-var_dump($users);
+// // Read files and folders inside parent directory
+// $files = scandir('../');
+// echo '<pre>';
+// var_dump($files);
+// echo '</pre>';
 
-// Check if file exists or not
-file_exists('lorem.txt'); // true
 
-// Get file size
-filesize('lorem.txt');
+// // // file_get_contents, file_put_contents
+// $lorem = file_get_contents('lorem.txt'); // get content of file
+// echo $lorem;
+// echo '<br>';
 
-// Delete file
-unlink('lorem.txt');
+// file_put_contents('lorem.txt', "First line " . $lorem);
 
-// https://www.php.net/manual/en/book.filesystem.php
+// // file_get_contents from URL
+// $jsonContent = file_get_contents('https://jsonplaceholder.typicode.com/users');
+// // The json_decode() function is used to decode or convert a JSON object to a PHP object
+// $users = json_decode($jsonContent , false); // true to convert into associative array , false for object
+// echo "<pre>";
+// var_dump($users);
+// echo "</pre>";
+
+
+// $jsonobj = '{"Kamran":35,"Ali":37,"kashan":43}'; // json data
+
+// $obj = json_decode($jsonobj); // by default false , convert into php object
+
+// echo $obj->Kamran;
+// echo $obj->Ali;
+// echo $obj->kashan;
+
+
+// $jsonobj = '{"Kamran":35,"Ali":37,"kashan":43}'; // json data
+
+// $arr = json_decode($jsonobj, true); // convert into asociative array
+
+// echo $arr["Kamran"];
+// echo $arr["Ali"];
+// echo $arr["kashan"];
+
+
+
+
+
+
+// // Check if file exists or not
+// file_exists('lorem.txt'); // return boolean
+// is_dir("test"); // checking if directory present // return boolean
+
+// // Get file size
+// filesize('lorem.txt');
+
+// // Delete file
+// unlink('lorem.txt');
+
+// // https://www.php.net/manual/en/book.filesystem.php
