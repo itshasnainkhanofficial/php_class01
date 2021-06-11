@@ -1,4 +1,38 @@
 <?php
+// problem
+
+// class Student {
+//     public $name;
+//     function showName()
+//     {
+//         return $this -> name;
+//     }
+// }
+
+
+// $std = new Student();
+
+// $std -> name = "Kashan";
+
+// echo $std -> showName();
+
+
+
+class Student {
+    private $name;
+    function showName()
+    {
+        return $this -> name;
+    }
+}
+
+
+$std = new Student();
+
+$std -> name = "Kashan";
+
+echo $std -> showName();
+
 
 // class Student {
 
