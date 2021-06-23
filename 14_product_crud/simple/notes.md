@@ -1,10 +1,25 @@
 <?php
-// https://www.tutorialrepublic.com/php-tutorial/php-mysql-crud-application.php
-1. PHP 5 and later can work with a MySQL database using:
+# Notes For CRUD in php
 
-- MySQLi extension (the "i" stands for improved)
-- PDO (PHP Data Objects)
-2. Earlier versions of PHP used the MySQL extension. However, this extension was deprecated in 2012.
+## Crud
+- C reate
+- R ead
+- U pdate
+- D elete
+## Create database
+    
+CREATE TABLE employees (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100) NOT NULL,
+salary int(30) NOT NULL,
+) 
+
+## Three ways
+1. Mysqli
+    1. procedural
+    2. OOP
+2. PDO (OOP)
+
 ## Should I Use MySQLi or PDO?
 If you need a short answer, it would be "Whatever you like".
 
@@ -18,23 +33,41 @@ If you need a short answer, it would be "Whatever you like".
 
 - Both support Prepared Statements. Prepared Statements protect from SQL injection, and are very important for web application security.
 
+## Prepared Statements and Bound Parameters
+A prepared statement is a feature used to execute the same (or similar) SQL statements repeatedly with high efficiency.
 
-- In this, and in the following chapters we demonstrate three ways of working with PHP and MySQL:
+## Prepared statements basically work like this:
+- Prepare: An SQL statement template is created and sent to the database. Certain values are left unspecified, called parameters (labeled "?"). Example: INSERT INTO MyGuests VALUES(?, ?, ?)
+- The database parses, compiles, and performs query optimization on the SQL statement template, and stores the result without executing it
+- Execute: At a later time, the application binds the values to the parameters, and the database executes the statement. The application may execute the statement as many times as it wants with different values
+- Compared to executing SQL statements directly, prepared statements have three main advantages:
+    1. Prepared statements reduce parsing time as the preparation on the query is done only once (although the statement is executed multiple times)
+    2. Bound parameters minimize bandwidth to the server as you need send only the parameters each time, and not the whole query
+    3. Prepared statements are very useful against SQL injections.
 
-1. MySQLi (object-oriented)
-2. MySQLi (procedural)
-3. PDO
+### Binding
+- (for mysqli)
+$stmt = $conn->prepare("INSERT INTO employees (firstname, salary ) VALUES (? , ?)");
+$stmt->bind_param("si", $firstname , $salary);
+$firstname = "Yasir";
+$salary = 5000;
+$stmt->execute();
 
 
-- create table using the following query 
-```
-CREATE TABLE employees (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL,
-salary int(30) NOT NULL,
-) 
-```
+- (for pdo)
+$stmt = $conn->prepare("INSERT INTO employees (firstname) VALUES (:firstname)");
+$stmt->bindParam(':firstname', $firstname);
+$firstname = "Nehal";
+$stmt->execute();
+  
+1. i - integer
+2. d - double
+3. s - string
+4. b - BLOB
+
+BLOB stands for Binary Large Object that can hold a variable amount of data. It’s used for storing binary data and for the columns of high-capacity binary storage. You can store any file type including PDF documents, MP3 Files and Video Files.
+to learn more about BLOB datatype read this [https://tableplus.com/blog/2019/10/mysql-blob.html]
 
 
-// // https://www.javatpoint.com/php-pdo#:~:text=Advantage%20of%20PDO,uniform%20access%20across%20several%20databases.
+
 ?>
